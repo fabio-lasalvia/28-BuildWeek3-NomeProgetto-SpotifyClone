@@ -14,6 +14,7 @@
       .container {
         margin: 0;
         padding: 0;
+        width: 100%;
       }
 
       .sidebar-icon {
@@ -21,7 +22,7 @@
         align-items: center;
         margin-left: 20px;
         padding: 10px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
       }
 
@@ -35,33 +36,128 @@
       }
 
       #sidebar-3 {
-        font-size: 14px;
+        font-size: 13px;
       }
 
       #sidebar-3 ul {
         list-style: none;
-        padding: 25px;
+        padding: 23px;
       }
 
       #sidebar-3 li {
         padding-bottom: 15px;
       }
 
-      section h6 {
+      main {
+        flex-grow: 2;
+      }
+
+      #main-topbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+
+      #main-topbar button {
+        border: 2px solid red;
+      }
+
+      #profile-icon-Lidia {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 180px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: black;
+        opacity: 0.8;
+      }
+
+      #profile-icon-Lidia img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-left: 2px;
+      }
+
+      #profile-icon-Lidia h6 {
+        font-size: 13px;
+        color: white;
+        margin: 2px;
+      }
+
+      #profile-icon-Lidia .fa-caret-down {
+        font-size: 14px;
+        color: white;
+      }
+
+      #copertina-album {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #copertina-album img {
+        border: 1px solid green;
+        width: 250px;
+        height: 250px;
+        margin-left: 30px;
+      }
+
+      #copertina-album div {
+        flex-basis: 70%;
+        margin-left: 25px;
+      }
+
+      #copertina-album p {
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-top: 60px;
+      }
+
+      #copertina-album h1 {
+        font-size: 78px;
+        font-weight: 700;
+        margin-top: 0;
+      }
+
+      #copertina-album h6 {
+        font-size: 12px;
+        margin-bottom: 0;
+        margin-top: 40px;
+      }
+
+      .play-icons {
+        padding: 40px;
+      }
+
+      .play-icons i {
+        font-size: 30px;
+      }
+
+      section h5 {
+        padding: 15px;
         font-size: 14px;
         font-weight: 700;
-        padding: 15px;
+      }
+
+      section h6 {
+        font-size: 13px;
+        font-weight: 700;
       }
 
       section p,
       .fa-solid {
-        font-size: 12px;
+        font-size: 11px;
       }
 
+      #amici {
+        margin-top: 10px;
+      }
       .friend-info {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-between;
+
         padding: 15px;
       }
 
@@ -70,14 +166,21 @@
         margin-right: 8px;
         gap: 3px;
       }
+
+      .profile-pic {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
-    <div class="container d-flex">
+    <div id="whole-container" class="d-flex">
       <header class="bg-dark text-white">
         <div id="sidebar-1" class="mb-3">
           <div class="sidebar-icon">
-            <i class="fa-solid fa-bars mt-2 mb-2"></i>
+            <i class="fa-solid fa-ellipsis mt-2 mb-2"></i>
           </div>
           <div class="sidebar-icon">
             <i class="fa-solid fa-house"></i>
@@ -109,7 +212,7 @@
         <div
           style="
             margin-left: 25px;
-            width: 300px;
+            width: 280px;
             border-bottom: 1px solid white;
           "
         ></div>
@@ -138,26 +241,44 @@
         </div>
       </header>
 
-      <main style="width: 500px">
-        <div>Elemento frecce</div>
-        <div>Elemento profilo personale</div>
-        <div id="copertina-album">
-          <img src="" alt="" />
-          <div>
-            <p>ALBUM</p>
-            <h1>Titolo album</h1>
-            <h6>Autore album</h6>
+      <main>
+        <div id="album">
+          <div id="main-topbar">
+            <div class="navigation-arrows">
+              <a href="#" class="previous"
+                ><i class="fa-solid fa-chevron-left"></i
+              ></a>
+              <a href="#" class="next"
+                ><i class="fa-solid fa-chevron-right"></i
+              ></a>
+            </div>
+            <div id="profile-icon-Lidia">
+              <img src="images/thunder.jpg" alt="" />
+              <h6>Lidia Nautilus ...</h6>
+              <i class="fa-solid fa-caret-down me-3"></i>
+            </div>
           </div>
-          <div id="main-icons">
-            <p>Icon</p>
-            <p>Icon</p>
-            <p>Icon</p>
-            <p>Icon</p>
+          <div id="copertina-album">
+            <img src="" alt="" />
+            <div>
+              <p>ALBUM</p>
+              <h1>Titolo album</h1>
+              <h6>Autore album</h6>
+            </div>
           </div>
-          <div id="sottotitoli">
-            <p>TITOLO</p>
-            <p>RIPRODUZIONI</p>
-            <p>icona orologio</p>
+
+          <div id="main-icons" class="play-icons d-flex">
+            <p><i class="fa-solid fa-play"></i></p>
+            <p><i class="fa-regular fa-heart"></i></p>
+            <p><i class="fa-solid fa-circle-arrow-down"></i></p>
+            <p><i class="fa-solid fa-ellipsis"></i></p>
+          </div>
+          <div id="songs" class="bg-dark text-white">
+            <div id="subtitles" class="d-flex justify-content-between mx-4">
+              <p># TITOLO</p>
+              <p>RIPRODUZIONI</p>
+              <p><i class="fa-solid fa-clock"></i></p>
+            </div>
             <div
               style="
                 margin-left: 25px;
@@ -165,6 +286,7 @@
                 border-bottom: 1px solid white;
               "
             ></div>
+
             <div id="titoli-album">
               <ul>
                 <li></li>
@@ -174,45 +296,68 @@
         </div>
       </main>
 
-      <!--<section id="friends-column" class="bg-dark text-white">
+      <section id="friends-column" class="bg-dark text-white">
         <div
           id="amici"
           class="d-flex justify-content-between align-items-center"
         >
-          <h6>Attivitá amici</h6>
+          <h5>Attivitá amici</h5>
           <div id="amici-icons">
-            <i class="fa-solid fa-user-group" style="font-size: 14px"></i>
-            <i class="fa-solid fa-xmark" style="font-size: 14px"></i>
+            <i class="fa-solid fa-user-group me-3" style="font-size: 14px"></i>
+            <i class="fa-solid fa-xmark me-2" style="font-size: 14px"></i>
           </div>
         </div>
-        <div class="friend-info">
-          <img src="" alt="" />
+        <div class="friend-info mt-4">
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-1"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>Charlie Hookham</h6>
-            <p>In Camera &bull; Yumi Zouma</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>EP III</p>
+            <p class="mb-2">In Camera &bull; Yumi Zouma</p>
+            <p><i class="fa-solid fa-record-vinyl me-2"></i>EP III</p>
           </div>
           <p>4 ore</p>
         </div>
         <div class="friend-info">
-          <img src="" alt="" />
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-2"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>lightdark02</h6>
-            <p>Aimed to Kill &bull; Jade LeMac</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>Aimed to Kill</p>
+            <p class="mb-2">Aimed to Kill &bull; Jade LeMac</p>
+            <p><i class="fa-solid fa-record-vinyl me-2"></i>Aimed to Kill</p>
           </div>
           <p>8 ore</p>
         </div>
         <div class="friend-info">
-          <img src="" alt="" />
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-3"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>Valeria Traverso</h6>
-            <p>New Kings &bull; Spleeping Wolf</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>Twint Badass mood</p>
+            <p class="mb-2">New Kings &bull; Spleeping Wolf</p>
+            <p>
+              <i class="fa-solid fa-record-vinyl me-2"></i>Twint Badass mood
+            </p>
           </div>
           <p>3 giorni</p>
         </div>
-      </section> -->
+      </section>
     </div>
 
     <script
