@@ -272,6 +272,60 @@
         margin-right: 5px;
         border-radius: 50%;
       }
+
+      @media (max-width: 768px) {
+        header {
+          display: none;
+        }
+
+        section {
+          display: none;
+        }
+
+        #main-topbar {
+          display: none;
+        }
+        #copertina-album {
+          display: flex;
+          flex-direction: column;
+        }
+        #copertina-album img {
+          max-width: 80%;
+        }
+        #copertina-album div {
+          width: 95%;
+        }
+
+        #copertina-album h1 {
+          font-size: 32px;
+        }
+        .traccia.header {
+          display: none;
+        }
+        .traccia {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+        .col {
+          padding: 0.23rem 0;
+          width: 100%;
+          justify-content: space-between;
+        }
+        .col.numero {
+          display: none;
+        }
+        .col.titolo {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .col.riproduzioni,
+        .col.durata {
+          font-size: 0.8rem;
+          color: #aaa;
+          text-align: right;
+        }
+      }
     </style>
   </head>
   <body>
