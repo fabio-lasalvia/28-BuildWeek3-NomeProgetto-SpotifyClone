@@ -1,0 +1,415 @@
+body {
+  background-color: #1f1f1f;
+  font-family: "Gotham", sans-serif;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /*blocca lo spazio globale*/
+  background-color: #1f1f1f;
+}
+
+#playerBar {
+  background-color: #191919;
+}
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+header {
+  height: 100vh;
+  background-color: black;
+}
+
+header .fa-solid {
+  font-size: 20px;
+}
+
+.sidebar-icon p {
+  margin-bottom: 0px;
+  padding-left: 15px;
+}
+
+#sidebar-3 {
+  font-size: 13px;
+}
+
+#sidebar-3 ul {
+  list-style: none;
+  padding: 23px;
+}
+
+#sidebar-3 li {
+  padding-bottom: 15px;
+}
+
+main {
+  flex-grow: 2;
+}
+
+#album {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#album-area {
+  flex-shrink: 0;
+}
+
+#main-topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#main-topbar button {
+  border: 2px solid red;
+}
+
+.navigation-arrows .fa-solid {
+  font-size: 16px;
+  font-weight: thin;
+  padding: 8px;
+  color: white;
+  padding-right: 12px;
+  padding-left: 12px;
+  background-color: black;
+  border-radius: 50%;
+  margin-right: 6px;
+  opacity: 0.8;
+}
+
+#profile-icon-Lidia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#profile-icon-Lidia img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+#profile-icon-Lidia h6 {
+  font-size: 13px;
+  color: white;
+  margin: 2px;
+}
+
+#profile-icon-Lidia .fa-caret-down {
+  font-size: 14px;
+  color: white;
+}
+
+#copertina-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#album-cover {
+  width: 250px;
+  height: 250px;
+  margin-left: 30px;
+  box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.2);
+}
+
+#copertina-album div {
+  flex-basis: 70%;
+}
+
+.album-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#album-artist-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-left: 0;
+  margin-left: 25px;
+}
+
+.artist-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.artist-name {
+  margin-left: 0.3rem;
+}
+
+#copertina-album p {
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 50px;
+  margin-left: 25px;
+}
+
+#copertina-album h1 {
+  font-size: 58px;
+  font-weight: 900;
+  margin-top: 8px;
+  margin-bottom: 50px;
+  margin-left: 25px;
+}
+
+#copertina-album h6 {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+#copertina-album span {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+#playlist-container {
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
+}
+
+#main-icons {
+  padding: 20px 30px;
+  gap: 30px;
+  align-items: center;
+}
+
+.play-icon {
+  background-color: #1ed760;
+  padding: 15px 20px;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.play-icons i {
+  font-size: 30px;
+}
+
+#social-icons {
+  display: flex;
+  gap: 25px;
+  color: #aaa;
+}
+
+#titoli-album {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 1.5rem;
+  color: white;
+}
+
+.traccia {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.traccia.header {
+  display: flex;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #aaa;
+  border-bottom: 2px solid #555;
+  font-weight: bold;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.col.numero {
+  width: 30px;
+  flex-grow: 0;
+  justify-content: flex-start;
+  padding-right: 0.5rem;
+}
+
+.col.titolo .numero {
+  font-size: 1rem;
+  color: #bbb;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.col.titolo {
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.col.riproduzioni {
+  justify-content: flex-end;
+  color: #aaa;
+}
+
+.col.durata {
+  justify-content: flex-end;
+  color: #aaa;
+}
+
+.artista {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+section h5 {
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+section h6 {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+section p,
+.fa-solid {
+  font-size: 11px;
+}
+
+#amici {
+  margin-top: 10px;
+}
+.friend-info {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+}
+
+#amici-icons {
+  margin-bottom: 8px;
+  margin-right: 8px;
+  gap: 3px;
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  header {
+    display: none;
+  }
+
+  section {
+    display: none;
+  }
+
+  #album {
+    height: 100dvh; /*piú preciso sui dispositivi mobili*/
+  }
+  #main-topbar {
+    display: none;
+  }
+  #songs {
+    flex-grow: 1;
+    overflow-y: auto; /*solo questa parte é scrollabile*/
+    padding: 1rem;
+  }
+  #copertina-album {
+    display: flex;
+    flex-direction: column;
+  }
+  #album-cover {
+    margin-left: 0;
+    width: 70%;
+    height: auto;
+  }
+  #copertina-album div {
+    width: 98%;
+  }
+
+  #copertina-album h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    order: 1;
+    margin-top: 30px;
+  }
+  #album-artist-info span {
+    display: none;
+  }
+  #album-artist-info {
+    font-size: 14px;
+    order: 2;
+  }
+  #copertina-album p {
+    display: flex;
+    order: 3;
+    margin-top: 15px;
+  }
+
+  .traccia.header {
+    display: none;
+  }
+  .traccia {
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .col {
+    padding: 0.23rem 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .col.titolo .numero {
+    display: none;
+  }
+  .col.titolo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .col.riproduzioni,
+  .col.durata {
+    display: none;
+  }
+  #titoli-album .fa-solid.fa-ellipsis-vertical {
+    font-weight: 700;
+    opacity: 0.8;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1800px) {
+  #copertina-album h1 {
+    font-size: 72px;
+  }
+}

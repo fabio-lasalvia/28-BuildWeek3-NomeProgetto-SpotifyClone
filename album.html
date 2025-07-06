@@ -5,79 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Album page</title>
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <style>
-      .container {
-        margin: 0;
-        padding: 0;
-      }
-
-      .sidebar-icon {
-        display: flex;
-        align-items: center;
-        margin-left: 20px;
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 700;
-      }
-
-      header .fa-solid {
-        font-size: 20px;
-      }
-
-      .sidebar-icon p {
-        margin-bottom: 0px;
-        padding-left: 15px;
-      }
-
-      #sidebar-3 {
-        font-size: 14px;
-      }
-
-      #sidebar-3 ul {
-        list-style: none;
-        padding: 25px;
-      }
-
-      #sidebar-3 li {
-        padding-bottom: 15px;
-      }
-
-      section h6 {
-        font-size: 14px;
-        font-weight: 700;
-        padding: 15px;
-      }
-
-      section p,
-      .fa-solid {
-        font-size: 12px;
-      }
-
-      .friend-info {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 15px;
-      }
-
-      #amici-icons {
-        margin-bottom: 8px;
-        margin-right: 8px;
-        gap: 3px;
-      }
-    </style>
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/gotham-fonts@1.0.3/css/gotham-rounded.min.css
+"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="album.css" />
   </head>
   <body>
-    <div class="container d-flex">
-      <header class="bg-dark text-white">
+    <div id="whole-container" class="d-flex">
+      <!-- Sidebar Sinistra -->
+      <aside class="col-2 d-none d-xl-block bg-black text-white p-3">
+        <!-- Lista di navigazione -->
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <a
+              href="#"
+              class="d-flex align-items-center text-white text-decoration-none"
+            >
+              <i class="bi bi-three-dots me-2"></i>
+            </a>
+          </li>
+
+          <li class="mb-3">
+            <a
+              href="spotifyHome.html"
+              class="d-flex align-items-center text-white text-decoration-none"
+            >
+              <i class="bi bi-house me-2"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li class="mb-3">
+            <a
+              href="#"
+              class="d-flex align-items-center text-white text-decoration-none"
+            >
+              <i class="bi bi-search me-2"></i>
+              <span>Cerca</span>
+            </a>
+          </li>
+
+          <li class="mb-3">
+            <a
+              href="#"
+              class="d-flex align-items-center text-white text-decoration-none"
+            >
+              <i class="bi bi-collection me-2"></i>
+              <span>La tua Libreria</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled">
+          <br />
+          <li class="mb-3 d-flex align-items-center">
+            <i
+              class="bi bi-plus text-black me-2 p-2 rounded"
+              style="background-color: white"
+            ></i>
+            <span class="text-truncate">Crea playlist</span>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <i
+              class="bi bi-suit-heart-fill me-2 p-2 rounded"
+              style="background-color: rgb(175, 98, 213)"
+            ></i>
+            <span class="text-truncate">Brani che ti piacciono</span>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <i
+              class="bi bi-bookmark-fill text-success me-2 p-2 rounded"
+              style="background-color: rgb(6, 55, 0)"
+            ></i>
+            <span class="text-truncate">I tuoi episodi</span>
+          </li>
+        </ul>
+
+        <hr />
+
+        <ul class="list-unstyled">
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >early stage emily syndrome (sett-ott 2022)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">Be The Young</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >"..."cit. Kimiko (lug-ago 2022)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">saggio vibes💃&#9647;🩰</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >main character energy (mag-giu 2022)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">that fucking mood🔪☠</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >VEE, CARLOTTA E GIACOMO VANNO A BOSIO</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >An Emily Winchester kind of mood🔪🖕</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center justify-content-between">
+            <small class="text-truncate me-2"
+              >landing page (mar-apr 2022)</small
+            >
+            <i class="bi bi-arrow-down-circle-fill"></i>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">2021 lol</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center justify-content-between">
+            <small class="text-truncate me-2"
+              >cosa cazzo vuol dire questa affermazione (gen-feb)</small
+            >
+            <i class="bi bi-arrow-down-circle-fill"></i>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >honey and glass (nov-dic 2021)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">(Revenge) Training Arc 🦍</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">Lidia 🤝 Emily</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >minecraft e nintendo switch (sep-oct 2021)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2"
+              >silvano d'orba? I hardly know her (lug-ago 2021)</small
+            >
+          </li>
+          <li class="mb-3 d-flex align-items-center justify-content-between">
+            <small class="text-truncate me-2">Culo 2021</small>
+            <i class="bi bi-people me-2"></i>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">Frah Quintale Mix</small>
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <small class="text-truncate me-2">Francesco Guccini Mix</small>
+          </li>
+        </ul>
+      </aside>
+      <!--- <header class="bg-black text-white">
         <div id="sidebar-1" class="mb-3">
           <div class="sidebar-icon">
-            <i class="fa-solid fa-bars mt-2 mb-2"></i>
+            <i class="fa-solid fa-ellipsis mt-2 mb-2"></i>
           </div>
           <div class="sidebar-icon">
             <i class="fa-solid fa-house"></i>
@@ -109,7 +213,7 @@
         <div
           style="
             margin-left: 25px;
-            width: 300px;
+            width: 280px;
             border-bottom: 1px solid white;
           "
         ></div>
@@ -136,85 +240,317 @@
             <li>Francesco Guccini Mix</li>
           </ul>
         </div>
-      </header>
+      </header> -->
 
-      <main style="width: 500px">
-        <div>Elemento frecce</div>
-        <div>Elemento profilo personale</div>
-        <div id="copertina-album">
-          <img src="" alt="" />
-          <div>
-            <p>ALBUM</p>
-            <h1>Titolo album</h1>
-            <h6>Autore album</h6>
+      <nav class="navbar fixed-bottom bg-black d-md-none" style="opacity: 0.9">
+        <div class="container d-flex justify-content-between">
+          <a
+            href="#"
+            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
+          >
+            <i class="bi bi-house-door"></i>
+            <small>Home</small>
+          </a>
+          <a
+            href="#"
+            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
+          >
+            <i class="bi bi-search"></i>
+            <small>Cerca</small>
+          </a>
+          <a
+            href="#"
+            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
+          >
+            <i class="bi bi-collection-play"></i>
+            <small>La tua libreria</small>
+          </a>
+        </div>
+      </nav>
+
+      <main>
+        <div id="album">
+          <div id="album-area">
+            <div id="main-topbar" class="mx-2">
+              <div class="navigation-arrows">
+                <a href="spotifyHome.html" class="previous"
+                  ><i class="fa-solid fa-chevron-left"></i
+                ></a>
+                <a href="#" class="next"
+                  ><i class="fa-solid fa-chevron-right"></i
+                ></a>
+              </div>
+              <div id="profile-icon-Lidia">
+                <img src="images/thunder.jpg" alt="" />
+                <h6><strong>Lidia Nautilus ...</strong></h6>
+                <i class="fa-solid fa-caret-down me-3"></i>
+              </div>
+            </div>
+
+            <div id="copertina-album"></div>
           </div>
-          <div id="main-icons">
-            <p>Icon</p>
-            <p>Icon</p>
-            <p>Icon</p>
-            <p>Icon</p>
-          </div>
-          <div id="sottotitoli">
-            <p>TITOLO</p>
-            <p>RIPRODUZIONI</p>
-            <p>icona orologio</p>
-            <div
-              style="
-                margin-left: 25px;
-                width: 300px;
-                border-bottom: 1px solid white;
-              "
-            ></div>
-            <div id="titoli-album">
-              <ul>
-                <li></li>
-              </ul>
+
+          <div id="playlist-container">
+            <div id="main-icons" class="play-icons d-flex">
+              <p><i class="play-icon fa-solid fa-play"></i></p>
+              <div id="social-icons">
+                <p><i class="fa-regular fa-heart"></i></p>
+                <p><i class="fa-solid fa-circle-arrow-down"></i></p>
+                <p><i class="fa-solid fa-ellipsis"></i></p>
+              </div>
+            </div>
+            <div id="songs" class="text-white">
+              <div id="titoli-album"></div>
             </div>
           </div>
         </div>
       </main>
 
-      <!--<section id="friends-column" class="bg-dark text-white">
+      <!-- Sidebar Destra -->
+      <aside class="col-2 d-none d-xl-block bg-black text-white p-3">
+        <div class="d-flex justify-content-between">
+          <h6 class="me-2">Attività amici</h6>
+          <div class="d-flex">
+            <i class="bi bi-person-add me-2"></i>
+            <i class="bi bi-x-lg me-2"></i>
+          </div>
+        </div>
+
+        <br /><br />
+
+        <ul class="list-unstyled">
+          <!-- Charlie Hookham -->
+          <li>
+            <a href="#" class="text-white text-decoration-none">
+              <div class="d-flex">
+                <i class="bi bi-person me-2"></i>
+                <div class="w-100">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <p class="fw-bold m-0 text-truncate mb-0">
+                      Charlie Hookham
+                    </p>
+                    <small class="small text-nowrap">4 ore</small>
+                  </div>
+                  <small class="text-truncate d-block"
+                    >In camera &middot; Yumi Zouma</small
+                  >
+                  <p class="m-0"><i class="bi bi-disc me-2"></i>EP III</p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <br />
+
+          <!-- lightdark02 -->
+          <li>
+            <a href="#" class="text-white text-decoration-none">
+              <div class="d-flex">
+                <i class="bi bi-person me-2"></i>
+                <div class="w-100">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <p class="fw-bold m-0 text-truncate mb-0">lightdark02</p>
+                    <small class="small text-nowrap">8 ore</small>
+                  </div>
+                  <small class="text-truncate d-block"
+                    >Aimed to Kill &middot; Jade LeMac</small
+                  >
+                  <p class="m-0">
+                    <i class="bi bi-disc me-2"></i>Aimed to Kill
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+
+          <br />
+
+          <!-- Valeria Traverso -->
+          <li>
+            <a href="#" class="text-white text-decoration-none">
+              <div class="d-flex">
+                <i class="bi bi-person me-2"></i>
+                <div class="w-100">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <p class="fw-bold m-0 text-truncate mb-0">
+                      Valeria Traverso
+                    </p>
+                    <small class="small text-nowrap">3 giorni</small>
+                  </div>
+                  <small class="text-truncate d-block"
+                    >New Kings &middot; Sleeping Wolf</small
+                  >
+                  <p class="m-0">
+                    <i class="bi bi-music-note-beamed me-2"></i>Twint Badass
+                    mood
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!--<section id="friends-column" class="bg-black text-white">
         <div
           id="amici"
           class="d-flex justify-content-between align-items-center"
         >
-          <h6>Attivitá amici</h6>
+          <h5>Attivitá amici</h5>
           <div id="amici-icons">
-            <i class="fa-solid fa-user-group" style="font-size: 14px"></i>
-            <i class="fa-solid fa-xmark" style="font-size: 14px"></i>
+            <i class="fa-solid fa-user-group me-3" style="font-size: 14px"></i>
+            <i class="fa-solid fa-xmark me-2" style="font-size: 14px"></i>
           </div>
         </div>
-        <div class="friend-info">
-          <img src="" alt="" />
+        <div class="friend-info mt-4">
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-1"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>Charlie Hookham</h6>
-            <p>In Camera &bull; Yumi Zouma</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>EP III</p>
+            <p class="mb-2">In Camera &bull; Yumi Zouma</p>
+            <p><i class="fa-solid fa-record-vinyl me-2"></i>EP III</p>
           </div>
           <p>4 ore</p>
         </div>
         <div class="friend-info">
-          <img src="" alt="" />
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-2"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>lightdark02</h6>
-            <p>Aimed to Kill &bull; Jade LeMac</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>Aimed to Kill</p>
+            <p class="mb-2">Aimed to Kill &bull; Jade LeMac</p>
+            <p><i class="fa-solid fa-record-vinyl me-2"></i>Aimed to Kill</p>
           </div>
           <p>8 ore</p>
         </div>
         <div class="friend-info">
-          <img src="" alt="" />
+          <div>
+            <img
+              src="images/thunder.jpg"
+              alt="profile-pic-3"
+              class="profile-pic"
+            />
+          </div>
+
           <div>
             <h6>Valeria Traverso</h6>
-            <p>New Kings &bull; Spleeping Wolf</p>
-            <p><i class="fa-solid fa-record-vinyl"></i>Twint Badass mood</p>
+            <p class="mb-2">New Kings &bull; Spleeping Wolf</p>
+            <p>
+              <i class="fa-solid fa-record-vinyl me-2"></i>Twint Badass mood
+            </p>
           </div>
           <p>3 giorni</p>
         </div>
       </section> -->
     </div>
 
+    <!-- PLAY BAR SONGS -->
+    <div class="fixed-bottom w-100 text-white shadow-lg py-2" id="playerBar">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <!-- BLOCCO SX -->
+        <a
+          href="album.html"
+          class="text-decoration-none text-white d-flex align-items-center flex-grow-1"
+        >
+          <img
+            src=""
+            alt=""
+            class="img-fluid rounded me-3"
+            id="imgAlbumPlayerBar"
+          />
+          <div>
+            <div
+              id="titoloWrapper"
+              class="overflow-hidden"
+              style="max-width: 80px"
+            >
+              <p class="mb-0 fw-bold text-nowrap" id="titoloPlayerBar"></p>
+            </div>
+            <small class="text-secondary" id="artistaPlayerBar"></small>
+          </div>
+        </a>
+
+        <!-- BLOCCO CENTRO -->
+        <div
+          class="d-flex align-items-center justify-content-center flex-grow-1"
+        >
+          <!-- btn random -->
+          <button class="btn text-white p-2 mx-1" id="btnShuffle">
+            <i class="bi bi-shuffle"></i>
+          </button>
+          <!-- btn back -->
+          <button class="btn text-white p-2 mx-1" id="btnPrev">
+            <i class="bi bi-skip-start-fill"></i>
+          </button>
+          <!-- btn play -->
+          <button class="btn text-white p-2 mx-1" id="btnPlay">
+            <i class="bi bi-play-circle-fill fs-3"></i>
+          </button>
+          <!-- btn next -->
+          <button class="btn text-white p-2 mx-1" id="btnNext">
+            <i class="bi bi-skip-end-fill"></i>
+          </button>
+          <!-- btn repeat -->
+          <button class="btn text-white p-2 mx-1" id="btnRepeat">
+            <i class="bi bi-repeat"></i>
+          </button>
+          <!-- audio -->
+          <audio id="audioPlayer"></audio>
+        </div>
+
+        <!-- BLOCCO DX -->
+        <div class="d-flex align-items-center justify-content-end flex-grow-1">
+          <!-- btn microfono -->
+          <button class="btn text-white p-2 mx-1" id="btnMic">
+            <i class="bi bi-mic-fill"></i>
+          </button>
+          <!-- btn lista -->
+          <button class="btn text-white p-2 mx-1" id="btnQueue">
+            <i class="bi bi-list-ul"></i>
+          </button>
+          <!-- btn share -->
+          <button class="btn text-white p-2 mx-1" id="btnScreenShare">
+            <i class="bi bi-display"></i>
+          </button>
+          <!-- btn volume -->
+          <button class="btn text-white p-2 mx-1" id="btnVolume">
+            <i class="bi bi-volume-up-fill"></i>
+          </button>
+          <!-- barra volume -->
+          <input
+            type="range"
+            class="form-range mx-2"
+            id="volumeRange"
+            min="0"
+            max="100"
+            value="50"
+            style="width: 80px"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
+    <script src="album.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
