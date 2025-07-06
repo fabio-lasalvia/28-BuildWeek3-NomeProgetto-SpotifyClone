@@ -19,13 +19,34 @@ async function getAlbumId() {
     const identification = await result.json();
     console.log(identification);
 
+    const artistName = identification.artist.name;
+    const artistImage = identification.artist.picture_small;
+    const releaseYear = new Date(identification.release_date).getFullYear();
+    const numberOfTracks = identification.nb_tracks;
+    const totalDuration = identification.duration;
+
+    //calcola minuti e secondi
+    const minuti = Math.floor(totalDuration / 60);
+    const secondi = totalDuration % 60;
+
     coverContainer.innerHTML = `
-    <img id="album-cover" src="${identification.cover_big}" alt="" crossorigin="anonymous" />
-            <div>
-              <p class="text-white">ALBUM</p>
+    <img id="album-cover" src="${
+      identification.cover_big
+    }" alt="" crossorigin="anonymous" />
+          <div class="album-text-container">
+              <p class="d-sm-none d-md-block text-white">ALBUM</p>
+              <p class="d-md-none d-sm-block text-white">Album &middot; ${releaseYear}</p>
               <h1 class="text-white">${identification.title}</h1>
-              <h6 class="text-white">${identification.artist.name}</h6>
-            </div>`;
+            <div id="album-artist-info">
+              <img src="${artistImage}" alt="${artistName}" class="artist-icon">
+              <h6 class="artist-name text-white"><strong>${artistName} </strong></h6>
+              <span><strong>&middot;</strong><strong>  ${releaseYear} &middot;</strong></span>
+              <span><strong>${numberOfTracks} brani,</strong></span>
+              <span>${minuti} min ${secondi
+      .toString()
+      .padStart(2, "0")} sec.</span>
+            </div>
+          </div>`;
 
     ////////////////PRENDI IL COLORE DELL'ALBUM E RENDILO SFUMATO COME SFONDO////////////////
 
@@ -74,6 +95,7 @@ async function getAlbumId() {
         </div>
         <div class="col riproduzioni">${track.rank.toLocaleString()}</div>
         <div class="col durata">${secondsToMinutes(track.duration)}</div>
+        <div class="d-sm-flex d-md-none  d-lg-none"><i class="fa-solid fa-ellipsis-vertical text-white"></i></div>
     </div>`;
     });
 
