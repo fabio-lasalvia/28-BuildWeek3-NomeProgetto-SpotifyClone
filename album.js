@@ -3,6 +3,7 @@ const searchIndirizzo = new URLSearchParams(indirizzo);
 const albumId = searchIndirizzo.get(`id`);
 const coverContainer = document.querySelector("#copertina-album");
 const braniContainer = document.querySelector("#titoli-album");
+const playerImage = document.querySelector("#imgAlbumPlayerBar");
 
 /////ID di test locale///////
 if (!albumId) {
@@ -18,6 +19,7 @@ async function getAlbumId() {
     );
     const identification = await result.json();
     console.log(identification);
+    
 
     const artistName = identification.artist.name;
     const artistImage = identification.artist.picture_small;
@@ -34,7 +36,7 @@ async function getAlbumId() {
       identification.cover_big
     }" alt="" crossorigin="anonymous" />
           <div class="album-text-container">
-              <p class="d-sm-none d-md-block text-white">ALBUM</p>
+              <p class="d-xs-none d-sm-none d-md-block text-white">ALBUM</p>
               <p class="d-md-none d-sm-block text-white">Album &middot; ${releaseYear}</p>
               <h1 class="text-white">${identification.title}</h1>
             <div id="album-artist-info">
@@ -54,12 +56,6 @@ async function getAlbumId() {
     const albumArea = document.getElementById("album-area");
     const colorThief = new ColorThief();
     //  colorThief.getColor(document.getElementById("album-cover"));
-
-    //IndexSizeError: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The source width is 0.
-    // at n.getImageData (color-thief.umd.js:1:4958)
-    //at o.getPalette (color-thief.umd.js:1:5731)
-    //at o.getColor (color-thief.umd.js:1:5092)
-    //at getAlbumId (album.js:35:16)
 
     //Se l'immagine e' gia' caricata, prendi subito il colore
     if (img.complete) {
@@ -106,6 +102,7 @@ async function getAlbumId() {
     // }
     console.log("Indirizzo completo:", window.location.href);
     console.log("albumId:", albumId);
+
   } catch (e) {
     console.log(e);
   }
@@ -118,4 +115,96 @@ function secondsToMinutes(sec) {
   const min = Math.floor(sec / 60); //sec input esterno, math.floor per calcolare quanti minuti interi ci sono
   const secLeft = sec % 60; //calcolo dei secondi restanti
   return `${min}:${secLeft.toString().padStart(2, "0")}`; // secLeft.toString().padStart(2, "0") serve per aggiungere lo zero davanti se i secondi sono meno di 10.
+}
+
+//////////////////////////////////////////////
+/////GESTIONE FUNZIONAMENTO PLAYBAR SONGS/////
+//////////////////////////////////////////////
+function popolaPlayerBar(song) {
+  const imgAlbumPlayerBar = document.querySelector("#imgAlbumPlayerBar");
+  imgAlbumPlayerBar.src = song.album.cover_small;
+  imgAlbumPlayerBar.alt = song.album.title;
+
+  const titoloPlayerBar = document.querySelector("#titoloPlayerBar");
+  const wrapper = document.querySelector("#titoloWrapper");
+
+  //Reset animazione e testo
+  titoloPlayerBar.classList.remove("scroll-attiva");
+  titoloPlayerBar.innerText = song.title;
+
+  //Se il titolo è più lungo dello spazio visibile, si attiva l'animazione
+  setTimeout(() => {
+    if (titoloPlayerBar.scrollWidth > wrapper.clientWidth) {
+      titoloPlayerBar.classList.add("scroll-attiva");
+    }
+  }, 100);
+
+  const artistaPlayerBar = document.querySelector("#artistaPlayerBar");
+  artistaPlayerBar.innerText = song.artist.name;
+
+  audio.src = song.preview;
+
+  btnPlay.addEventListener("click", () => {
+    togglePlay(audio, iconPlay);
+  });
+
+  btnPlayMobile.addEventListener("click", () => {
+    togglePlay(audio, iconPlayMobile);
+  });
+
+  function togglePlay(audio, icon) {
+    if (audio.paused) {
+      audio.play();
+      icon.classList.remove("bi-play-circle-fill");
+      icon.classList.add("bi-pause-circle-fill");
+    } else {
+      audio.pause();
+      icon.classList.remove("bi-pause-circle-fill");
+      icon.classList.add("bi-play-circle-fill");
+    }
+  }
+
+  function resetIconePlay() {
+    iconPlay.classList.remove("bi-pause-circle-fill");
+    iconPlay.classList.add("bi-play-circle-fill");
+
+    iconPlayMobile.classList.remove("bi-pause-circle-fill");
+    iconPlayMobile.classList.add("bi-play-circle-fill");
+  }
+}
+
+//Volume inizializzato al 50%
+audio.volume = 0.5;
+
+volumeRange.addEventListener("input", () => {
+  const volumeValue = volumeRange.value / 100;
+  audio.volume = volumeValue;
+
+  aggiornaIconaVolume(volumeValue);
+});
+
+btnVolume.addEventListener("click", () => {
+  // Mute/unmute toggle
+  if (audio.volume > 0) {
+    audio.dataset.previousVolume = audio.volume;
+    audio.volume = 0;
+    volumeRange.value = 0;
+  } else {
+    audio.volume = audio.dataset.previousVolume || 0.5;
+    volumeRange.value = audio.volume * 100;
+  }
+
+  aggiornaIconaVolume(audio.volume);
+});
+
+function aggiornaIconaVolume(volume) {
+  iconVolume.className = "bi"; // reset icona
+
+  if (volume === 0) {
+    iconVolume.classList.add("bi-volume-mute-fill");
+  } else if (volume <= 0.3) {
+    iconVolume.classList.add("bi-volume-down-fill");
+  } else {
+    iconVolume.classList.add("bi-volume-up-fill");
+  }
 }

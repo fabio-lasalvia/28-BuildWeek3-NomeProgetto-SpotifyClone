@@ -240,17 +240,18 @@
         </div>
       </header> -->
 
-      <nav class="navbar fixed-bottom bg-black d-md-none" style="opacity: 0.9">
+      <!-- NAVBAR MOBILE FISSA IN BASSO -->
+      <nav class="navbar fixed-bottom bg-black d-xl-none" style="opacity: 0.9">
         <div class="container d-flex justify-content-between">
           <a
-            href="#"
+            href="spotifyHome.html"
             class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
           >
             <i class="bi bi-house-door"></i>
             <small>Home</small>
           </a>
           <a
-            href="#"
+            href="spotifyCerca.html"
             class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
           >
             <i class="bi bi-search"></i>
@@ -460,89 +461,120 @@
     </div>
 
     <!-- PLAY BAR SONGS -->
-    <div class="fixed-bottom w-100 text-white shadow-lg py-2" id="playerBar">
+    <div
+      class="fixed-bottom w-100 bg-dark text-white shadow-lg py-2"
+      id="playerBar"
+    >
       <div
-        class="container-fluid d-flex justify-content-between align-items-center"
+        class="container-fluid d-flex justify-content-between align-items-center flex-wrap"
       >
         <!-- BLOCCO SX -->
         <a
           href="album.html"
-          class="text-decoration-none text-white d-flex align-items-center flex-grow-1"
+          class="text-decoration-none text-white d-flex align-items-center flex-grow-0 playerbar-left"
         >
+          <!-- Immagine solo da md in su -->
           <img
-            src=""
-            alt=""
-            class="img-fluid rounded me-3"
+            src="https://cdn-images.dzcdn.net/images/cover/6fc9a5efdb5cb8978599a1b357f9e043/56x56-000000-80-0-0.jpg"
+            alt="selected album"
+            class="img-fluid rounded me-3 d-none d-md-block"
             id="imgAlbumPlayerBar"
           />
           <div>
             <div
               id="titoloWrapper"
               class="overflow-hidden"
-              style="max-width: 80px"
+              style="max-width: 50px"
             >
               <p class="mb-0 fw-bold text-nowrap" id="titoloPlayerBar"></p>
             </div>
-            <small class="text-secondary" id="artistaPlayerBar"></small>
+            <!-- Artista solo da md in su -->
+            <small
+              class="text-secondary d-none d-md-block"
+              id="artistaPlayerBar"
+            ></small>
           </div>
+          <!-- btn like -->
+          <button class="btn text-white p-2 mx-1 d-none d-md-flex" id="btnLike">
+            <i class="bi bi-heart"></i>
+          </button>
         </a>
 
-        <!-- BLOCCO CENTRO -->
+        <!-- BLOCCO CENTRALE - visibile solo da md in su -->
         <div
-          class="d-flex align-items-center justify-content-center flex-grow-1"
+          class="d-none d-md-flex align-items-center justify-content-center flex-grow-1 playerbar-center"
         >
-          <!-- btn random -->
           <button class="btn text-white p-2 mx-1" id="btnShuffle">
             <i class="bi bi-shuffle"></i>
           </button>
-          <!-- btn back -->
           <button class="btn text-white p-2 mx-1" id="btnPrev">
             <i class="bi bi-skip-start-fill"></i>
           </button>
-          <!-- btn play -->
           <button class="btn text-white p-2 mx-1" id="btnPlay">
             <i class="bi bi-play-circle-fill fs-3"></i>
           </button>
-          <!-- btn next -->
           <button class="btn text-white p-2 mx-1" id="btnNext">
             <i class="bi bi-skip-end-fill"></i>
           </button>
-          <!-- btn repeat -->
           <button class="btn text-white p-2 mx-1" id="btnRepeat">
             <i class="bi bi-repeat"></i>
           </button>
-          <!-- audio -->
           <audio id="audioPlayer"></audio>
         </div>
 
         <!-- BLOCCO DX -->
-        <div class="d-flex align-items-center justify-content-end flex-grow-1">
-          <!-- btn microfono -->
-          <button class="btn text-white p-2 mx-1" id="btnMic">
-            <i class="bi bi-mic-fill"></i>
-          </button>
-          <!-- btn lista -->
-          <button class="btn text-white p-2 mx-1" id="btnQueue">
-            <i class="bi bi-list-ul"></i>
-          </button>
-          <!-- btn share -->
-          <button class="btn text-white p-2 mx-1" id="btnScreenShare">
-            <i class="bi bi-display"></i>
-          </button>
-          <!-- btn volume -->
-          <button class="btn text-white p-2 mx-1" id="btnVolume">
-            <i class="bi bi-volume-up-fill"></i>
-          </button>
-          <!-- barra volume -->
-          <input
-            type="range"
-            class="form-range mx-2"
-            id="volumeRange"
-            min="0"
-            max="100"
-            value="50"
-            style="width: 80px"
-          />
+        <div
+          class="d-flex align-items-center justify-content-end playerbar-right flex-grow-0"
+        >
+          <!-- SOLO DA MD IN SU -->
+          <div class="d-none d-md-flex align-items-center">
+            <!-- btn microfono -->
+            <button class="btn text-white p-2 mx-1" id="btnMic">
+              <i class="bi bi-mic-fill"></i>
+            </button>
+            <!-- btn lista -->
+            <button class="btn text-white p-2 mx-1" id="btnQueue">
+              <i class="bi bi-list-ul"></i>
+            </button>
+            <!-- btn screenshare -->
+            <button class="btn text-white p-2 mx-1" id="btnScreenShare">
+              <i class="bi bi-display"></i>
+            </button>
+            <!-- btn volume -->
+            <button class="btn text-white p-2 mx-1" id="btnVolume">
+              <i class="bi bi-volume-up-fill"></i>
+            </button>
+            <!-- range volume -->
+            <input
+              type="range"
+              class="form-range mx-2"
+              id="volumeRange"
+              min="0"
+              max="100"
+              value="50"
+              style="width: 50px"
+            />
+            <!-- btn espandi -->
+            <button class="btn text-white p-2 mx-1" id="btnExpand">
+              <i class="bi bi-arrows-angle-expand"></i>
+            </button>
+          </div>
+
+          <!-- SOLO DA SM IN GIÙ -->
+          <div class="d-flex d-md-none align-items-center ms-2">
+            <!-- btn like -->
+            <button class="btn text-white p-2 mx-1" id="btnLike">
+              <i class="bi bi-heart"></i>
+            </button>
+            <!-- btn screenshare -->
+            <button class="btn text-white p-2 mx-1" id="btnScreenShareMobile">
+              <i class="bi bi-display"></i>
+            </button>
+            <!-- btn play -->
+            <button class="btn text-white p-2 mx-1" id="btnPlayMobile">
+              <i class="bi bi-play-circle-fill fs-3"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
