@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artista | Spotify</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <!-- Customs CSS -->
+    <link rel="stylesheet" href="artist.css" />
+    <!-- Custom JS -->
+    <script src="artist.js" defer></script>
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo/spotifyGreen.png">
+</head>
+
+<body>
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar sinistra -->
+                <div class="d-none d-lg-block col-lg-2 bg-black text-white sidebar-full">
+                    <!-- Parte superiore: fissa -->
+                    <div class="sidebar-top p-3 pb-0">
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li>
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <i class="bi bi-three-dots"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <i class="bi bi-house-door"></i>
+                                    <span class="ms-2">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <i class="bi bi-search"></i>
+                                    <span class="ms-2">Cerca</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <i class="bi bi-collection-play"></i>
+                                    <span class="ms-2">La tua libreria</span>
+                                </a>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <i class="bi bi-plus-square-fill"></i>
+                                    <span class="ms-2">Crea playlist</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 20px; height: 20px; background-color: #574EA2; border-radius: 3px;">
+                                        <i class="bi bi-suit-heart-fill" style="font-size: 12px;"></i>
+                                    </div>
+                                    <span class="ms-2">Brani che ti piacciono</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white d-flex align-items-center">
+                                    <div
+                                        style="display: flex; justify-content: center; align-items: center; width: 20px; height: 20px; background-color: #004537; border-radius: 3px;">
+                                        <i class="bi bi-bookmark-fill" style="font-size: 12px;"></i>
+                                    </div>
+                                    <span class="ms-2">I tuoi episodi</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <hr />
+                    </div>
+
+                    <!-- Parte inferiore: scrollabile -->
+                    <div class="sidebar-scroll p-3 pt-0">
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">early stage emily syndrome (sett-ott 2022)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">Be The Young</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">"..."cit. Kimiko (lug-ago 2022)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">saggio vibes💃▯🩰</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">main character energy (mag-giu 2022)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">that fucking mood🔪☠</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">An Emily Winchester kind of mood🔪🖕</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center justify-content-between">
+                                <small class="text-truncate me-2">landing page (mar-apr 2022)</small>
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">2021 lol</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center justify-content-between">
+                                <small class="text-truncate me-2">cosa cazzo vuol dire questa affermazione
+                                    (gen-feb)</small>
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">honey and glass (nov-dic 2021)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">(Revenge) Training Arc 🦍</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">Lidia 🤝 Emily</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">minecraft e nintendo switch (sep-oct 2021)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">silvano d'orba? I hardly know her (lug-ago
+                                    2021)</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center justify-content-between">
+                                <small class="text-truncate me-2">Culo 2021</small>
+                                <i class="bi bi-people me-2"></i>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">Frah Quintale Mix</small>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <small class="text-truncate me-2">Francesco Guccini Mix</small>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contenuto centrale -->
+                <div class="col-12 col-lg-8 p-0">
+                    <section class="hero-section d-flex align-items-end">
+                        <div class="overlay"></div>
+                        <!-- Badge sinistra -->
+                        <div class="position-absolute top-0 start-0 m-3 badge badge-left">
+                            <div class="d-flex gap-2">
+                                <button
+                                    class="btn btn-dark rounded-circle p-0 d-flex justify-content-center align-items-center"
+                                    style="width: 30px; height: 30px;">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button
+                                    class="btn btn-dark rounded-circle p-0 d-flex justify-content-center align-items-center"
+                                    style="width: 30px; height: 30px;">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Badge destra -->
+                        <div class="position-absolute top-0 end-0 m-3 badge badge-right">
+                            <div class="dropdown">
+                                <button id="btnAccountHero" class="btn d-flex align-items-center gap-2 rounded-pill"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-5"></i>
+                                    <span class="text-white">Lidia Nautilus</span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end bg-dark text-white">
+                                    <li>
+                                        <a class="dropdown-item text-white d-flex align-items-center" href="#">
+                                            <i class="bi bi-person me-2"></i> Profilo
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-white d-flex align-items-center" href="#">
+                                            <i class="bi bi-gear me-2"></i> Impostazioni
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider bg-secondary">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-white d-flex align-items-center" href="#">
+                                            <i class="bi bi-box-arrow-right me-2"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container hero-content">
+                            <div class="mb-2 d-none d-lg-block">
+                                <span class="verified-badge"><i class="bi bi-patch-check-fill"></i></span>
+                                <span>Artista verificato</span>
+                            </div>
+                            <div id="artist-name"></div>
+                            <div class="d-none d-lg-block monthly-listeners"></div>
+                        </div>
+                    </section>
+
+                    <section class="track-section container-fluid p-4">
+                        <div class="monthly-listeners d-lg-none d-sm-block mb-3"></div>
+                        <div class="row">
+                            <!-- Visualizzazione su desktop -->
+                            <div class="spotify-header d-none d-lg-flex">
+                                <button class="play-button">
+                                    <i class="bi bi-play-fill"></i>
+                                </button>
+                                <button class="follow-btn">SEGUI</button>
+                                <button class="btn btn-link text-light p-0">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                            </div>
+                            <!-- Visualizzazione su tablet e smartphone -->
+                            <div class="spotify-header d-sm-flex justify-content-between d-lg-none">
+                                <div class="d-flex align-items-center gap-3">
+                                    <button class="follow-btn">SEGUI</button>
+                                    <button class="btn btn-link text-light p-0"><i
+                                            class="bi bi-three-dots-vertical"></i></button>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <button class="btn btn-link text-light p-0 fs-2"><i
+                                            class="bi bi-shuffle"></i></button>
+                                    <button class="play-button"><i class="bi bi-play-fill"></i></button>
+                                </div>
+
+
+                            </div>
+                            <!-- Sezione Popolari -->
+                            <div class="col-lg-8 order-2 order-lg-1">
+                                <h2 class="section-title">Popolari</h2>
+                                <div class="track-list"></div>
+                            </div>
+
+                            <!-- Sezione Brani che ti piacciono -->
+                            <div class="col-lg-4 order-1 order-lg-2">
+                                <h3 class="section-title">Brani che ti piacciono</h3>
+                                <div class="braniCheTiPiacciono">
+                                    <div class="brani-images position-relative">
+                                        <span
+                                            class="position-absolute top-100 start-100 translate-middle border-light rounded-circle"><i
+                                                class="bi bi-heart-fill" style="color: greenyellow;"></i></span>
+
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <p class="brani-title">Hai messo Mi piace a 11 brani</p>
+                                        <p class="brani-subtitle"></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                    </section>
+
+
+                </div>
+
+                <!-- Sidebar destra -->
+                <div class="d-none d-lg-block col-lg-2 bg-black text-white">
+                    <div class="sidebar-top p-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>Attività amici</h6>
+                            </div>
+                            <div class="d-flex gap-1">
+                                <i class="bi bi-person-plus"></i>
+                                <i class="bi bi-x"></i>
+                            </div>
+                        </div>
+
+                        <div id="friends">
+                            <div class="friend mt-3 d-flex justify-content-between gap-2">
+                                <div>
+                                    <img src="images/usericon.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="name" style="font-size: 14px; font-weight: bold;">Charlie
+                                        Hookham</span>
+                                    <small class="songName">In camera &bull; Yumi Zouma</small>
+                                    <small>&#128440; EPIII</small>
+                                </div>
+                                <div>
+                                    <small>4 min</small>
+                                </div>
+                            </div>
+                            <div class="friend mt-3 d-flex justify-content-between gap-2">
+                                <div>
+                                    <img src="images/usericon.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="name" style="font-size: 14px; font-weight: bold;">lightdark02</span>
+                                    <small class="songName">Aimed to Kill &bull; Jade LeMac</small>
+                                    <small>&#128440; Aimed to Kill</small>
+                                </div>
+                                <div>
+                                    <small>4 min</small>
+                                </div>
+                            </div>
+                            <div class="friend mt-3 d-flex justify-content-between gap-2">
+                                <div>
+                                    <img src="images/usericon.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="name" style="font-size: 14px; font-weight: bold;">Nome Cognome</span>
+                                    <small class="songName">New Kings &bull; Sleeping Wolf</small>
+                                    <small class>&#128440; Twint badass mood</small>
+                                </div>
+                                <div>
+                                    <small>4 min</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bottom Player solo su mobile -->
+                <div class="bottom-player d-lg-none d-flex align-items-center justify-content-between">
+                    <div class="bottom-player-info">
+                        <div class="bottom-player-title"><!-- Nome canzone --></div>
+                    </div>
+                    <div class="bottom-player-controls">
+                        <button class="bottom-player-btn">
+                            <i class="bi bi-speaker"></i>
+                        </button>
+                        <button class="bottom-player-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+                        <button class="bottom-player-btn" id="bottom-play">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation solo su mobile -->
+                <div class="bottom-nav d-lg-none d-flex justify-content-around">
+                    <a href="index.html" class="bottomNav-item active">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="#" class="bottomNav-item">
+                        <i class="bi bi-search"></i>
+                        <span>Cerca</span>
+                    </a>
+                    <a href="#" class="bottomNav-item">
+                        <i class="bi bi-collection"></i>
+                        <span>La tua libreria</span>
+                    </a>
+                </div>
+
+                <!-- MUSIC PLAYER SU DESKTOP -->
+                <div class="music-bar align-items-center justify-content-between d-none d-lg-flex">
+                    <!-- Sezione sinistra: immagine + info canzone -->
+                    <div class="d-flex align-items-center">
+                        <img id="player-cover" class="">
+                        <div style="min-width: 250px; max-width: 250px; overflow: hidden;">
+                            <strong id="player-title"><!-- Nome canzone --></strong>
+                            <small id="player-artist"><!-- Nome artista --></small>
+                        </div>
+                    </div>
+
+                    <!-- Sezione centrale: controlli e progresso -->
+                    <div class="d-flex flex-column align-items-center w-50">
+                        <!-- Controlli -->
+                        <div class="d-flex justify-content-center mb-1 w-1">
+                            <button class="btn btn-link btn-sm text-white"><i class="bi bi-shuffle"></i></button>
+                            <button class="btn btn-link btn-sm text-white"><i
+                                    class="bi bi-skip-backward-fill"></i></button>
+                            <button id="play-pause" class="btn btn-link btn-sm text-white"><i
+                                    class="bi bi-play-circle-fill" style="font-size: 2rem;"></i></button>
+                            <button class="btn btn-link btn-sm text-white"><i
+                                    class="bi bi-skip-forward-fill"></i></button>
+                            <button class="btn btn-link btn-sm text-white"><i class="bi bi-repeat"></i></button>
+                        </div>
+                        <!-- Barra di progresso -->
+                        <div id="barraProgresso" class="d-flex align-items-center">
+                            <small class="me-2">0:00</small>
+                            <div class="flex-grow-1 bg-secondary" style="height: 4px; position: relative;">
+                                <div class="progress-bar-custom" style="width: 30%;"></div>
+                            </div>
+                            <small class="ms-2" id="track-duration">0:00</small>
+                        </div>
+                    </div>
+
+                    <!-- Sezione destra: Volume -->
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-view-list"></i>
+                        <i class="bi bi-speaker"></i>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-volume-up me-2"></i>
+                            <input id="volume-control" type="range" class="form-range" style="width: 100px;" min="0"
+                                max="1" step="0.01">
+                        </div>
+                    </div>
+
+                    <!-- Audio player nascosto -->
+                    <audio id="audio-player" src=""></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
