@@ -1,12 +1,15 @@
 body {
   background-color: #1f1f1f;
   font-family: "Gotham", sans-serif;
+  padding-bottom: 100px;
+  height: 100%;
 }
 
 .container {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
   width: 100%;
   background-color: #1f1f1f;
 }
@@ -25,8 +28,10 @@ body {
 }
 
 header {
-  height: 100vh;
+  height: 100%;
   background-color: black;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 header .fa-solid {
@@ -53,6 +58,8 @@ header .fa-solid {
 
 main {
   flex-grow: 2;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 #album {
@@ -83,9 +90,15 @@ main {
   padding-right: 12px;
   padding-left: 12px;
   background-color: black;
+  opacity: 0.9;
   border-radius: 50%;
   margin-right: 6px;
   opacity: 0.8;
+}
+
+.navigation-arrows .fa-solid:hover {
+  background-color: rgb(125, 123, 123);
+  border-radius: 20px;
 }
 
 #profile-icon-Lidia {
@@ -196,7 +209,7 @@ main {
   height: 100vh;
 }
 
-#main-icons {
+.main-icons {
   padding: 20px 30px;
   gap: 30px;
   align-items: center;
@@ -325,7 +338,102 @@ section p,
   border-radius: 50%;
 }
 
-@media (max-width: 768px) {
+/* Player su smartphone e tablet */
+.bottom-player {
+  position: fixed;
+  bottom: 75px;
+  left: 0;
+  right: 0;
+  background: rgba(40, 40, 40, 0.95);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.bottom-player-info {
+  flex: 1;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.bottom-player-title {
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom-player-artist {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bottom-player-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.bottom-player-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Barra di navigazione su smartphone e tablet */
+.bottom-nav {
+  position: fixed;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  background: rgba(18, 18, 18, 0.022);
+  padding: 8px 0 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomNav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.bottomNav-item.active {
+  color: white;
+}
+
+.bottomNav-item i {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 1024px) {
   header {
     display: none;
   }
@@ -339,6 +447,12 @@ section p,
   }
   #main-topbar {
     display: none;
+  }
+  #desktop-icons {
+    display: none;
+  }
+  #mobile-icons {
+    display: block;
   }
   #songs {
     flex-grow: 1;

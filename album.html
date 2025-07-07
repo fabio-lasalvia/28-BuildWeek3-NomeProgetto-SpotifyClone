@@ -240,33 +240,6 @@
         </div>
       </header> -->
 
-      <!-- NAVBAR MOBILE FISSA IN BASSO -->
-      <nav class="navbar fixed-bottom bg-black d-xl-none" style="opacity: 0.9">
-        <div class="container d-flex justify-content-between">
-          <a
-            href="spotifyHome.html"
-            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
-          >
-            <i class="bi bi-house-door"></i>
-            <small>Home</small>
-          </a>
-          <a
-            href="spotifyCerca.html"
-            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
-          >
-            <i class="bi bi-search"></i>
-            <small>Cerca</small>
-          </a>
-          <a
-            href="#"
-            class="nav-link text-white d-flex flex-column align-items-center flex-fill text-center"
-          >
-            <i class="bi bi-collection-play"></i>
-            <small>La tua libreria</small>
-          </a>
-        </div>
-      </nav>
-
       <main>
         <div id="album">
           <div id="album-area">
@@ -293,7 +266,17 @@
           </div>
 
           <div id="playlist-container">
-            <div id="main-icons" class="play-icons d-flex">
+            <!--Visualizzazione su mobile e tablet-->
+            <div id="mobile-icons" class="main-icons play-icons d-none">
+              <div id="social-icons">
+                <p><i class="fa-regular fa-heart"></i></p>
+                <p><i class="fa-solid fa-circle-arrow-down"></i></p>
+                <p><i class="fa-solid fa-ellipsis"></i></p>
+              </div>
+              <p><i class="play-icon fa-solid fa-play"></i></p>
+            </div>
+            <!--Visualizzazione su desktop-->
+            <div id="desktop-icons" class="main-icons play-icons d-flex">
               <p><i class="play-icon fa-solid fa-play"></i></p>
               <div id="social-icons">
                 <p><i class="fa-regular fa-heart"></i></p>
@@ -308,98 +291,7 @@
         </div>
       </main>
 
-      <!-- Sidebar Destra -->
-      <aside class="col-2 d-none d-xl-block bg-black text-white p-3">
-        <div class="d-flex justify-content-between">
-          <h6 class="me-2">Attività amici</h6>
-          <div class="d-flex">
-            <i class="bi bi-person-add me-2"></i>
-            <i class="bi bi-x-lg me-2"></i>
-          </div>
-        </div>
-
-        <br /><br />
-
-        <ul class="list-unstyled">
-          <!-- Charlie Hookham -->
-          <li>
-            <a href="#" class="text-white text-decoration-none">
-              <div class="d-flex">
-                <i class="bi bi-person me-2"></i>
-                <div class="w-100">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <p class="fw-bold m-0 text-truncate mb-0">
-                      Charlie Hookham
-                    </p>
-                    <small class="small text-nowrap">4 ore</small>
-                  </div>
-                  <small class="text-truncate d-block"
-                    >In camera &middot; Yumi Zouma</small
-                  >
-                  <p class="m-0"><i class="bi bi-disc me-2"></i>EP III</p>
-                </div>
-              </div>
-            </a>
-          </li>
-
-          <br />
-
-          <!-- lightdark02 -->
-          <li>
-            <a href="#" class="text-white text-decoration-none">
-              <div class="d-flex">
-                <i class="bi bi-person me-2"></i>
-                <div class="w-100">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <p class="fw-bold m-0 text-truncate mb-0">lightdark02</p>
-                    <small class="small text-nowrap">8 ore</small>
-                  </div>
-                  <small class="text-truncate d-block"
-                    >Aimed to Kill &middot; Jade LeMac</small
-                  >
-                  <p class="m-0">
-                    <i class="bi bi-disc me-2"></i>Aimed to Kill
-                  </p>
-                </div>
-              </div>
-            </a>
-          </li>
-
-          <br />
-
-          <!-- Valeria Traverso -->
-          <li>
-            <a href="#" class="text-white text-decoration-none">
-              <div class="d-flex">
-                <i class="bi bi-person me-2"></i>
-                <div class="w-100">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <p class="fw-bold m-0 text-truncate mb-0">
-                      Valeria Traverso
-                    </p>
-                    <small class="small text-nowrap">3 giorni</small>
-                  </div>
-                  <small class="text-truncate d-block"
-                    >New Kings &middot; Sleeping Wolf</small
-                  >
-                  <p class="m-0">
-                    <i class="bi bi-music-note-beamed me-2"></i>Twint Badass
-                    mood
-                  </p>
-                </div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </aside>
-
-      <!--<section id="friends-column" class="bg-black text-white">
+      <section id="friends-column" class="bg-black text-white">
         <div
           id="amici"
           class="d-flex justify-content-between align-items-center"
@@ -460,77 +352,107 @@
           </div>
           <p>3 giorni</p>
         </div>
-      </section> -->
-    </div>
+      </section>
 
-    <!-- PLAY BAR SONGS -->
-    <div
-      class="fixed-bottom w-100 bg-dark text-white shadow-lg py-2"
-      id="playerBar"
-    >
+      <!-- Bottom Player solo su mobile -->
       <div
-        class="container-fluid d-flex justify-content-between align-items-center flex-wrap"
+        class="bottom-player d-lg-none d-flex align-items-center justify-content-between"
       >
-        <!-- BLOCCO SX -->
-        <a
-          href="album.html"
-          class="text-decoration-none text-white d-flex align-items-center flex-grow-0 playerbar-left"
-        >
-          <!-- Immagine solo da md in su -->
-          <img
-            src="https://cdn-images.dzcdn.net/images/cover/6fc9a5efdb5cb8978599a1b357f9e043/56x56-000000-80-0-0.jpg"
-            alt="selected album"
-            class="img-fluid rounded me-3 d-none d-md-block"
-            id="imgAlbumPlayerBar"
-          />
-          <div>
-            <div
-              id="titoloWrapper"
-              class="overflow-hidden"
-              style="max-width: 50px"
-            >
-              <p class="mb-0 fw-bold text-nowrap" id="titoloPlayerBar"></p>
-            </div>
-            <!-- Artista solo da md in su -->
-            <small
-              class="text-secondary d-none d-md-block"
-              id="artistaPlayerBar"
-            ></small>
-          </div>
-          <!-- btn like -->
-          <button class="btn text-white p-2 mx-1 d-none d-md-flex" id="btnLike">
+        <div class="bottom-player-info">
+          <div class="bottom-player-title"><!-- Nome canzone --></div>
+        </div>
+        <div class="bottom-player-controls">
+          <button class="bottom-player-btn">
+            <i class="bi bi-speaker"></i>
+          </button>
+          <button class="bottom-player-btn">
             <i class="bi bi-heart"></i>
           </button>
-        </a>
-
-        <!-- BLOCCO CENTRALE - visibile solo da md in su -->
-        <div
-          class="d-none d-md-flex align-items-center justify-content-center flex-grow-1 playerbar-center"
-        >
-          <button class="btn text-white p-2 mx-1" id="btnShuffle">
-            <i class="bi bi-shuffle"></i>
+          <button class="bottom-player-btn" id="bottom-play">
+            <i class="bi bi-play-fill"></i>
           </button>
-          <button class="btn text-white p-2 mx-1" id="btnPrev">
-            <i class="bi bi-skip-start-fill"></i>
-          </button>
-          <button class="btn text-white p-2 mx-1" id="btnPlay">
-            <i class="bi bi-play-circle-fill fs-3"></i>
-          </button>
-          <button class="btn text-white p-2 mx-1" id="btnNext">
-            <i class="bi bi-skip-end-fill"></i>
-          </button>
-          <button class="btn text-white p-2 mx-1" id="btnRepeat">
-            <i class="bi bi-repeat"></i>
-          </button>
-          <audio id="audioPlayer"></audio>
         </div>
+      </div>
 
-        <!-- BLOCCO DX -->
+      <!-- Bottom Navigation solo su mobile -->
+      <div class="bottom-nav d-lg-none d-flex justify-content-around">
+        <a href="index.html" class="bottomNav-item active">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottomNav-item">
+          <i class="bi bi-search"></i>
+          <span>Cerca</span>
+        </a>
+        <a href="#" class="bottomNav-item">
+          <i class="bi bi-collection"></i>
+          <span>La tua libreria</span>
+        </a>
+      </div>
+
+      <!-- PLAY BAR SONGS -->
+      <div
+        class="fixed-bottom w-100 bg-dark text-white shadow-lg py-2 d-sm-none d-md-block"
+        id="playerBar"
+      >
         <div
-          class="d-flex align-items-center justify-content-end playerbar-right flex-grow-0"
+          class="container-fluid d-flex justify-content-between align-items-center"
         >
-          <!-- SOLO DA MD IN SU -->
-          <div class="d-none d-md-flex align-items-center">
+          <!-- BLOCCO SX -->
+          <a
+            href="album.html"
+            class="text-decoration-none text-white d-flex align-items-center flex-grow-1"
+          >
+            <img
+              src=""
+              alt=""
+              class="img-fluid rounded me-3"
+              id="imgAlbumPlayerBar"
+            />
+            <div>
+              <div
+                id="titoloWrapper"
+                class="overflow-hidden"
+                style="max-width: 80px"
+              >
+                <p class="mb-0 fw-bold text-nowrap" id="titoloPlayerBar"></p>
+              </div>
+              <small class="text-secondary" id="artistaPlayerBar"></small>
+            </div>
+          </a>
+
+          <!-- BLOCCO CENTRO -->
+          <div
+            class="d-flex align-items-center justify-content-center flex-grow-1"
+          >
+            <!-- btn random -->
+            <button class="btn text-white p-2 mx-1" id="btnShuffle">
+              <i class="bi bi-shuffle"></i>
+            </button>
+            <!-- btn back -->
+            <button class="btn text-white p-2 mx-1" id="btnPrev">
+              <i class="bi bi-skip-start-fill"></i>
+            </button>
+            <!-- btn play -->
+            <button class="btn text-white p-2 mx-1" id="btnPlay">
+              <i class="bi bi-play-circle-fill fs-3"></i>
+            </button>
+            <!-- btn next -->
+            <button class="btn text-white p-2 mx-1" id="btnNext">
+              <i class="bi bi-skip-end-fill"></i>
+            </button>
+            <!-- btn repeat -->
+            <button class="btn text-white p-2 mx-1" id="btnRepeat">
+              <i class="bi bi-repeat"></i>
+            </button>
+            <!-- audio -->
+            <audio id="audioPlayer"></audio>
+          </div>
+
+          <!-- BLOCCO DX -->
+          <div
+            class="d-flex align-items-center justify-content-end flex-grow-1"
+          >
             <!-- btn microfono -->
             <button class="btn text-white p-2 mx-1" id="btnMic">
               <i class="bi bi-mic-fill"></i>
@@ -539,7 +461,7 @@
             <button class="btn text-white p-2 mx-1" id="btnQueue">
               <i class="bi bi-list-ul"></i>
             </button>
-            <!-- btn screenshare -->
+            <!-- btn share -->
             <button class="btn text-white p-2 mx-1" id="btnScreenShare">
               <i class="bi bi-display"></i>
             </button>
@@ -547,7 +469,7 @@
             <button class="btn text-white p-2 mx-1" id="btnVolume">
               <i class="bi bi-volume-up-fill"></i>
             </button>
-            <!-- range volume -->
+            <!-- barra volume -->
             <input
               type="range"
               class="form-range mx-2"
@@ -555,28 +477,8 @@
               min="0"
               max="100"
               value="50"
-              style="width: 50px"
+              style="width: 80px"
             />
-            <!-- btn espandi -->
-            <button class="btn text-white p-2 mx-1" id="btnExpand">
-              <i class="bi bi-arrows-angle-expand"></i>
-            </button>
-          </div>
-
-          <!-- SOLO DA SM IN GIÙ -->
-          <div class="d-flex d-md-none align-items-center ms-2">
-            <!-- btn like -->
-            <button class="btn text-white p-2 mx-1" id="btnLike">
-              <i class="bi bi-heart"></i>
-            </button>
-            <!-- btn screenshare -->
-            <button class="btn text-white p-2 mx-1" id="btnScreenShareMobile">
-              <i class="bi bi-display"></i>
-            </button>
-            <!-- btn play -->
-            <button class="btn text-white p-2 mx-1" id="btnPlayMobile">
-              <i class="bi bi-play-circle-fill fs-3"></i>
-            </button>
           </div>
         </div>
       </div>

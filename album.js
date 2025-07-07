@@ -5,12 +5,6 @@ const coverContainer = document.querySelector("#copertina-album");
 const braniContainer = document.querySelector("#titoli-album");
 const playerImage = document.querySelector("#imgAlbumPlayerBar");
 
-/////ID di test locale///////
-if (!albumId) {
-  albumId = 7714218;
-  console.warn("Nessun ID trovato nell'URL. Uso di ID di test", albumId);
-} //console.warn viene usato per visualizzare un messaggio di avviso in console
-
 //crea la chiamata per la risorsa specifica
 async function getAlbumId() {
   try {
@@ -35,7 +29,7 @@ async function getAlbumId() {
       identification.cover_big
     }" alt="" crossorigin="anonymous" />
           <div class="album-text-container">
-              <p class="d-xs-none d-sm-none d-md-block text-white">ALBUM</p>
+              <p class="d-xs-none d-sm-none text-white">ALBUM</p>
               <p class="d-md-none d-sm-block text-white">Album &middot; ${releaseYear}</p>
               <h1 class="text-white">${identification.title}</h1>
             <div id="album-artist-info">
@@ -94,11 +88,12 @@ async function getAlbumId() {
     </div>`;
     });
 
-    // if (!albumId) {
-    // alert("Nessun album selezionato! Ritorna alla homepage.");
-    // window.location.href = "index.html"; //qui va inserito il file della homepage
-    // return;
-    // }
+    if (!albumId) {
+      alert("Nessun album selezionato! Ritorna alla homepage.");
+      window.location.href = "index.html"; //qui va inserito il file della homepage
+      return;
+    }
+
     console.log("Indirizzo completo:", window.location.href);
     console.log("albumId:", albumId);
   } catch (e) {
