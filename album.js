@@ -33,6 +33,7 @@ async function getAlbumId() {
     const releaseYear = new Date(identification.release_date).getFullYear();
     const numberOfTracks = identification.nb_tracks;
     const totalDuration = identification.duration;
+    const song = identification.tracks.data[0];
     artistId = identification.artist.id;
 
     //passa i dati per le info sull'artista
@@ -47,8 +48,8 @@ async function getAlbumId() {
       identification.cover_big
     }" alt="" crossorigin="anonymous" />
           <div class="album-text-container">
-              <p class="d-sm-none d-md-block text-white">ALBUM</p>
-              <p class="d-md-none d-sm-block text-white">Album &middot; ${releaseYear}</p>
+              <p class="d-none d-md-block text-white">ALBUM</p>
+              <p class="d-sm-block d-lg-none text-white">Album &middot; ${releaseYear}</p>
               <h1 class="text-white">${identification.title}</h1>
             <div id="album-artist-info">
               <img src="${artistImage}" alt="${artistName}" class="artist-icon">
@@ -91,6 +92,8 @@ async function getAlbumId() {
 <div class="col durata"><i class="fa-regular fa-clock"></i></div>
 </div>`;
 
+    
+
     identification.tracks.data.forEach((track, index) => {
       braniContainer.innerHTML += `
     <div class="traccia">
@@ -114,6 +117,66 @@ async function getAlbumId() {
 
     console.log("Indirizzo completo:", window.location.href);
     console.log("albumId:", albumId);
+    
+    popolaPlayerBar(song);
+
+    //////////////////////////////////////////////
+    /////GESTIONE FUNZIONAMENTO PLAYBAR SONGS/////
+    //////////////////////////////////////////////
+    function popolaPlayerBar(song) {
+      const imgAlbumPlayerBar = document.querySelector("#imgAlbumPlayerBar");
+      imgAlbumPlayerBar.src = song.album
+        ? song.album.cover_small
+        : identification.cover_small;
+      imgAlbumPlayerBar.alt = song.title;
+
+      const titoloPlayerBar = document.querySelector("#titoloPlayerBar");
+      const wrapper = document.querySelector("#titoloWrapper");
+
+      //Reset animazione e testo
+      titoloPlayerBar.classList.remove("scroll-attiva");
+      titoloPlayerBar.innerText = song.title;
+
+      //Se il titolo è più lungo dello spazio visibile, si attiva l'animazione
+      setTimeout(() => {
+        if (titoloPlayerBar.scrollWidth > wrapper.clientWidth) {
+          titoloPlayerBar.classList.add("scroll-attiva");
+        }
+      }, 100);
+
+      const artistaPlayerBar = document.querySelector("#artistaPlayerBar");
+      artistaPlayerBar.innerText = song.artist.name;
+
+      audio.src = song.preview;
+
+      btnPlay.addEventListener("click", () => {
+        togglePlay(audio, iconPlay);
+      });
+
+      btnPlayMobile.addEventListener("click", () => {
+        togglePlay(audio, iconPlayMobile);
+      });
+
+      function togglePlay(audio, icon) {
+        if (audio.paused) {
+          audio.play();
+          icon.classList.remove("bi-play-circle-fill");
+          icon.classList.add("bi-pause-circle-fill");
+        } else {
+          audio.pause();
+          icon.classList.remove("bi-pause-circle-fill");
+          icon.classList.add("bi-play-circle-fill");
+        }
+      }
+
+      function resetIconePlay() {
+        iconPlay.classList.remove("bi-pause-circle-fill");
+        iconPlay.classList.add("bi-play-circle-fill");
+
+        iconPlayMobile.classList.remove("bi-pause-circle-fill");
+        iconPlayMobile.classList.add("bi-play-circle-fill");
+      }
+    }
   } catch (e) {
     console.log(e);
   }
@@ -126,96 +189,4 @@ function secondsToMinutes(sec) {
   const min = Math.floor(sec / 60); //sec input esterno, math.floor per calcolare quanti minuti interi ci sono
   const secLeft = sec % 60; //calcolo dei secondi restanti
   return `${min}:${secLeft.toString().padStart(2, "0")}`; // secLeft.toString().padStart(2, "0") serve per aggiungere lo zero davanti se i secondi sono meno di 10.
-}
-
-//////////////////////////////////////////////
-/////GESTIONE FUNZIONAMENTO PLAYBAR SONGS/////
-//////////////////////////////////////////////
-function popolaPlayerBar(song) {
-  const imgAlbumPlayerBar = document.querySelector("#imgAlbumPlayerBar");
-  imgAlbumPlayerBar.src = song.album.cover_small;
-  imgAlbumPlayerBar.alt = song.album.title;
-
-  const titoloPlayerBar = document.querySelector("#titoloPlayerBar");
-  const wrapper = document.querySelector("#titoloWrapper");
-
-  //Reset animazione e testo
-  titoloPlayerBar.classList.remove("scroll-attiva");
-  titoloPlayerBar.innerText = song.title;
-
-  //Se il titolo è più lungo dello spazio visibile, si attiva l'animazione
-  setTimeout(() => {
-    if (titoloPlayerBar.scrollWidth > wrapper.clientWidth) {
-      titoloPlayerBar.classList.add("scroll-attiva");
-    }
-  }, 100);
-
-  const artistaPlayerBar = document.querySelector("#artistaPlayerBar");
-  artistaPlayerBar.innerText = song.artist.name;
-
-  audio.src = song.preview;
-
-  btnPlay.addEventListener("click", () => {
-    togglePlay(audio, iconPlay);
-  });
-
-  btnPlayMobile.addEventListener("click", () => {
-    togglePlay(audio, iconPlayMobile);
-  });
-
-  function togglePlay(audio, icon) {
-    if (audio.paused) {
-      audio.play();
-      icon.classList.remove("bi-play-circle-fill");
-      icon.classList.add("bi-pause-circle-fill");
-    } else {
-      audio.pause();
-      icon.classList.remove("bi-pause-circle-fill");
-      icon.classList.add("bi-play-circle-fill");
-    }
-  }
-
-  function resetIconePlay() {
-    iconPlay.classList.remove("bi-pause-circle-fill");
-    iconPlay.classList.add("bi-play-circle-fill");
-
-    iconPlayMobile.classList.remove("bi-pause-circle-fill");
-    iconPlayMobile.classList.add("bi-play-circle-fill");
-  }
-}
-
-//Volume inizializzato al 50%
-audio.volume = 0.5;
-
-volumeRange.addEventListener("input", () => {
-  const volumeValue = volumeRange.value / 100;
-  audio.volume = volumeValue;
-
-  aggiornaIconaVolume(volumeValue);
-});
-
-btnVolume.addEventListener("click", () => {
-  // Mute/unmute toggle
-  if (audio.volume > 0) {
-    audio.dataset.previousVolume = audio.volume;
-    audio.volume = 0;
-    volumeRange.value = 0;
-  } else {
-    audio.volume = audio.dataset.previousVolume || 0.5;
-    volumeRange.value = audio.volume * 100;
-  }
-
-  aggiornaIconaVolume(audio.volume);
-});
-
-function aggiornaIconaVolume(volume) {
-  iconVolume.className = "bi"; // reset icona
-
-  if (volume === 0) {
-    iconVolume.classList.add("bi-volume-mute-fill");
-  } else if (volume <= 0.3) {
-    iconVolume.classList.add("bi-volume-down-fill");
-  } else {
-    iconVolume.classList.add("bi-volume-up-fill");
-  }
 }
