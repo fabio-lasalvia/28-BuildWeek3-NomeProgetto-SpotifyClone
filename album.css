@@ -8,7 +8,6 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /*blocca lo spazio globale*/
   background-color: #1f1f1f;
 }
 

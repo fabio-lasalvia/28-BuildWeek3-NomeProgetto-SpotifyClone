@@ -19,7 +19,6 @@ async function getAlbumId() {
     );
     const identification = await result.json();
     console.log(identification);
-    
 
     const artistName = identification.artist.name;
     const artistImage = identification.artist.picture_small;
@@ -41,7 +40,7 @@ async function getAlbumId() {
               <h1 class="text-white">${identification.title}</h1>
             <div id="album-artist-info">
               <img src="${artistImage}" alt="${artistName}" class="artist-icon">
-              <h6 class="artist-name text-white"><strong>${artistName} </strong></h6>
+              <h6 class="artist-name text-white"><strong><a href="artist.html" class="text-white text-decoration-none">${artistName} </a></strong></h6>
               <span><strong>&middot;</strong><strong>  ${releaseYear} &middot;</strong></span>
               <span><strong>${numberOfTracks} brani,</strong></span>
               <span>${minuti} min ${secondi
@@ -102,7 +101,6 @@ async function getAlbumId() {
     // }
     console.log("Indirizzo completo:", window.location.href);
     console.log("albumId:", albumId);
-
   } catch (e) {
     console.log(e);
   }
