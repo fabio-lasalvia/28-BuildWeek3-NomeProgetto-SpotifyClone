@@ -15,6 +15,24 @@ main {
   height: 100vh;
 }
 
+/***************************/
+/*****GESTIONE SIDEBAR*****/
+/*************************/
+aside li:hover {
+  background-color: rgb(221, 221, 221) !important;
+  color: black !important;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+aside li:hover a {
+  color: black !important;
+}
+
+aside li:hover i {
+  color: black !important;
+}
+
 /************************/
 /*****GESTIONE HERO*****/
 /**********************/
@@ -24,7 +42,7 @@ main {
   transition: transform 0.2s ease-in-out;
 }
 
-#heroSection:hover{
+#heroSection:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(146, 146, 146, 0.4);
 }
@@ -102,4 +120,3 @@ main {
   white-space: nowrap;
   min-width: 100%;
 }
-
