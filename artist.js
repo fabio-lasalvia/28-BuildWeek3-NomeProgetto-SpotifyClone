@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // FUNZIONE FETCH
 async function getArtistData() {
   try {
-    const artistId = params.get("id") || "647650"; // Imposta un ID di default se non è fornito
+    const artistId = params.get("id");
 
     if (!artistId) {
       throw new Error("Nessun ID artista fornito nella query URL.");
