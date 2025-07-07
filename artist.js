@@ -4,6 +4,7 @@ const artistName = document.querySelector('#artist-name');
 const ascoltatoriMensili = document.querySelectorAll('.monthly-listeners');
 const artistHero = document.querySelector('.hero-section');
 const followButton = document.querySelectorAll('.follow-btn');
+const titleTab = document.querySelector('title');
 
 // Variabili per la sezione "Brani che ti piacciono"
 const artistaImg = document.querySelector('.brani-images');
@@ -50,6 +51,7 @@ async function getArtistData() {
     console.log(artistData);
 
     // Popola la pagina con i dati
+    titleTab.innerText = artistData.name + ' | Spotify';
     artistName.textContent = artistData.name;
     ascoltatoriMensili.forEach(element => {
       element.textContent = `${artistData.nb_fan.toLocaleString()} ascoltatori mensili`;
