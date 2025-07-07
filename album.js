@@ -4,6 +4,20 @@ const albumId = searchIndirizzo.get(`id`);
 const coverContainer = document.querySelector("#copertina-album");
 const braniContainer = document.querySelector("#titoli-album");
 const playerImage = document.querySelector("#imgAlbumPlayerBar");
+let artistId;
+
+//chiamata per collegamento pagina artista
+async function getArtistId(id) {
+  try {
+    const risultato = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/artist/${id}`
+    );
+    const artistData = await risultato.json();
+    console.log("Dati artista:", artistData);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 //crea la chiamata per la risorsa specifica
 async function getAlbumId() {
@@ -19,6 +33,10 @@ async function getAlbumId() {
     const releaseYear = new Date(identification.release_date).getFullYear();
     const numberOfTracks = identification.nb_tracks;
     const totalDuration = identification.duration;
+    artistId = identification.artist.id;
+
+    //passa i dati per le info sull'artista
+    getArtistId(artistId);
 
     //calcola minuti e secondi
     const minuti = Math.floor(totalDuration / 60);
@@ -29,12 +47,12 @@ async function getAlbumId() {
       identification.cover_big
     }" alt="" crossorigin="anonymous" />
           <div class="album-text-container">
-              <p class="d-xs-none d-sm-none text-white">ALBUM</p>
+              <p class="d-sm-none d-md-block text-white">ALBUM</p>
               <p class="d-md-none d-sm-block text-white">Album &middot; ${releaseYear}</p>
               <h1 class="text-white">${identification.title}</h1>
             <div id="album-artist-info">
               <img src="${artistImage}" alt="${artistName}" class="artist-icon">
-              <h6 class="artist-name text-white"><strong><a href="artist.html" class="text-white text-decoration-none">${artistName} </a></strong></h6>
+              <h6 class="artist-name text-white"><strong><a href="artist.html?id=${artistId}" class="text-white text-decoration-none">${artistName} </a></strong></h6>
               <span><strong>&middot;</strong><strong>  ${releaseYear} &middot;</strong></span>
               <span><strong>${numberOfTracks} brani,</strong></span>
               <span>${minuti} min ${secondi
