@@ -1,0 +1,105 @@
+/***************/
+/*****BASE*****/
+/*************/
+body {
+  background-color: rgb(17, 17, 17);
+  padding-bottom: 60px;
+  color: white;
+}
+
+header {
+  font-weight: bolder;
+}
+
+main {
+  height: 100vh;
+}
+
+/************************/
+/*****GESTIONE HERO*****/
+/**********************/
+#heroSection {
+  background: linear-gradient(to top right, rgb(17, 17, 17), rgb(60, 60, 60));
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#heroSection:hover{
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(146, 146, 146, 0.4);
+}
+
+#btnAccountHero {
+  background-color: black;
+  color: white;
+}
+
+/*******************************/
+/*****GESTIONE COLORE CARD*****/
+/*****************************/
+#cardsSopra {
+  background-color: rgb(17, 17, 17) !important;
+}
+
+#cardsSotto {
+  background-color: rgb(36, 36, 36) !important;
+}
+
+.card-contenuto {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-contenuto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Da md in su, inverto i colori delle card */
+@media (min-width: 768px) {
+  #cardsSopra {
+    background-color: rgb(36, 36, 36) !important;
+  }
+
+  #cardsSotto {
+    background-color: rgb(17, 17, 17) !important;
+  }
+}
+
+/*******************************************************/
+/*****GESTIONE LAYOUT MOBILE DI NAVBAR E PLAYERBAR*****/
+/*****************************************************/
+#playerBar {
+  z-index: 1020;
+}
+
+@media (max-width: 1200px) {
+  #playerBar {
+    bottom: 60px;
+  }
+
+  nav.navbar.fixed-bottom {
+    z-index: 1030;
+  }
+}
+
+/************************************************/
+/*****GESTIONE SCORRIMENTO TITOLO PLAYERBAR*****/
+/**********************************************/
+@keyframes scroll-title {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-attiva {
+  display: inline-block;
+  animation: scroll-title 10s linear infinite;
+  white-space: nowrap;
+  min-width: 100%;
+}
+
