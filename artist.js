@@ -25,22 +25,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const track = JSON.parse(savedSong);
     aggiornaPlayer(track);
     audioPlayer.pause();
-    playPauseBtn.querySelector('i').classList.remove('bi-pause-circle-fill');
-    playPauseBtn.querySelector('i').classList.add('bi-play-circle-fill');
+    playPauseBtn.querySelector("i").classList.remove("bi-pause-circle-fill");
+    playPauseBtn.querySelector("i").classList.add("bi-play-circle-fill");
   }
 });
-
 
 // FUNZIONE FETCH
 async function getArtistData() {
   try {
-    const artistId = params.get('artistId') || '647650'; // Imposta un ID di default se non è fornito
+    const artistId = params.get("id") || "647650"; // Imposta un ID di default se non è fornito
 
     if (!artistId) {
-      throw new Error('Nessun ID artista fornito nella query URL.');
+      throw new Error("Nessun ID artista fornito nella query URL.");
     }
 
-    const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`);
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`
+    );
 
     if (!response.ok) {
       throw new Error(`Errore: ${response.status}`);
